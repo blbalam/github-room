@@ -1,0 +1,7 @@
+실습코드 : https://github.com/corazzon/cracking-the-pandas-cheat-sheet 
+
+* https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf
+
+* 판다스 10분 완성 :  https://dataitgirls2.github.io/10minutes2pandas/
+
+* google colaboratory : https://colab.research.google.com
