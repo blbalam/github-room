@@ -1,0 +1,36 @@
+Option Explicit
+
+
+
+Private Sub Worksheet_BeforeDoubleClick(ByVal Target As Range, Cancel As Boolean)
+Dim strCellVal As String
+Dim i As Long
+
+    On Error Resume Next
+    
+    If Intersect(Target.EntireRow, [현황[불량유형]]) Is Nothing Then Exit Sub
+    If Target.Cells.Count <> 1 Then Exit Sub
+    
+    strCellVal = ActiveCell.Value
+    
+    With Sheet2
+        .ListObjects(1).Range.AutoFilter 19, Criteria1:=Intersect(Target.EntireRow, [현황[불량유형]])
+        .Activate
+        i = .ListObjects(1).Range.Columns(1).SpecialCells(xlCellTypeVisible).Count
+     If i = 1 Then
+        .ListObjects(1).Range.End(xlDown).Offset(1, 2).Value = strCellVal
+     End If
+        .[A1].Select
+    End With
+        
+    Cancel = True
+
+End Sub
+
+
+
+
+※[현황[불량유형]] -> 표명과 그내부의 항목이름 임
+
+   With Sheet2
+        .ListObjects(1).Range.AutoFilter 19   => 19는 SHEET2 내 표에서 검색하려는 항목이 있는 위치 임.
