@@ -1,0 +1,18 @@
+#깃에서 자료 가져오기 (!git clone 뒤 깃주소 기입 )
+!git clone https://github.com/blbalam/github-room.git
+
+#가져온 자료폴더로 이동 확인
+cd github-room #-->폴더로 이동
+!ls            #-->폴더내 자료 확인
+
+
+#한글 폰트 지원(설치)
+!apt  -qq  -y install fonts-nanum
+
+#한글 폰트 그래프에 적용
+import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
+
+fontpath = " 폰트 위치"
+font = fm.FontProperties(fname=fontpath, size=10)
+fm._rebuild()
